@@ -12,3 +12,14 @@ div {
     background-color: yellow; 
     border: 5px solid red;
 }
+
+button {
+    background-color: #FF00FF;
+    border: 5px dashed gray;
+    padding: 15px 32px;
+    text-align: center;
+    font-family: Impact;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
