@@ -1,3 +1,14 @@
 table, th, td {
-    border: 1px solid black;
+    border: 5px solid gray;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+div {
+    height: 80px;
+    width: 80px;
+    background-color: yellow; 
+    border: 5px solid red;
 }
