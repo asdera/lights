@@ -35,11 +35,12 @@ function myReset() {
     if (isGud(user_row, user_column)) {
         rows = user_row;
         columns = user_column;
-        $("table").empty();
         myStart();
         alert("HERE YOU GO!");
+        win = 1;
     } else {
         alert("ERROR! Try Again!");
+        myReset();
     }
 }
 
@@ -50,7 +51,7 @@ function myCheck(light) {
 }
 
 function myRandomize(){
-    var a = Math.floor((Math.random() * 10) + 2 * rows * columns); 
+    var a = Math.floor((Math.random() * 10) + 3 * rows * columns); 
     for (i = 0; i < a; i++) {   
         r = Math.floor((Math.random() * rows) + 1);
         c = Math.floor((Math.random() * columns) + 1);
@@ -98,11 +99,9 @@ function myMove(a) {
 }
 
 $(document).ready(function() {
-    myStart();
+    myReset(); 
 	$("div").click(function() {
-	    if (win == 0) {
-	        myMove(this);
-	    }
+	   myMove(this);
     });
     
     $(".randomize").click(function() {
@@ -112,30 +111,5 @@ $(document).ready(function() {
     $(".win").click(function() {
         myWin();
     });
-    $(".change").click(function() {
-        myReset();
-    });
 });
-
-
-$(document).ready(function() {
-    myStart();
-	$("div").click(function() {
-	    if (win == 0) {
-	        myMove(this);
-	    }
-    });
-    
-    $(".randomize").click(function() {
-        myRandomize();
-    });
-  
-    $(".win").click(function() {
-        myWin();
-    });
-    $(".change").click(function() {
-        myReset();
-    });
-});
-
 
