@@ -1,6 +1,17 @@
 //$("body").append($().attr(""));
+var rows = 4;
 
-var win = 0
+var columns = 5;
+
+var win = 0;
+
+function myStart() {
+    for (i = 1; i <= rows; i++) {
+        $("body").append($("#1.1").attr("kkk"))
+    }
+    //$("div").attr("kkk", rows.toString());
+    //$("body").append($("#1.1").attr("kkk"));
+}
 
 function myCheck(light) {
     if ($(light).attr("kkk")==0) {
@@ -9,10 +20,10 @@ function myCheck(light) {
 }
 
 function myRandomize(){
-    var a = Math.floor((Math.random() * 10) + 40); 
+    var a = Math.floor((Math.random() * 10) + rows * columns); 
     for (i = 0; i < a; i++) {   
-        r = Math.floor((Math.random() * 4) + 1);
-        c = Math.floor((Math.random() * 5) + 1);
+        r = Math.floor((Math.random() * rows) + 1);
+        c = Math.floor((Math.random() * columns) + 1);
         myMove("#" + r + "."+ c);
     }  
     win = 0;
@@ -20,8 +31,8 @@ function myRandomize(){
 
 function myWin(a) {
         win = 1;
-        for (r = 0; r < 4; r++) {
-            for (c = 0; c < 5; c++) {
+        for (r = 0; r < rows; r++) {
+            for (c = 0; c < columns; c++) {
                 myCheck("#" + r + "." + c);
             }
         }
@@ -63,6 +74,7 @@ function myMove(a) {
 }
 
 $(document).ready(function() {
+    myStart();
 	$("div").click(function() {
 	    if (win == 0) {
 	        myMove(this);
