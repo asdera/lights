@@ -6,6 +6,18 @@ var columns = 5;
 
 var win = 1;
 
+function isGud(n, m) {
+   if (n % 1 == 0 && m % 1 == 0) {
+        if (n > 1 && n < 51 && m > 1 && m < 51) {
+            return 1;
+        } else {
+            return 0;
+        }
+   } else {
+       return 0;
+   }
+}
+
 function myStart() {
     for (j = 1; j <= rows; j++) {
         $("table").append("<tr id='r" + j + "'></tr>");
@@ -18,10 +30,17 @@ function myStart() {
 }
 
 function myReset() {
-    /*var user_row = prompt;
-    var user_columns = 3;
-    $("table").empty();
-    myStart()*/
+    var user_row = prompt("How Many Rows?");
+    var user_column = prompt("How Many Columns?");
+    if (isGud(user_row, user_column)) {
+        rows = user_row;
+        columns = user_column;
+        $("table").empty();
+        myStart();
+        alert("HERE YOU GO!");
+    } else {
+        alert("ERROR! Try Again!");
+    }
 }
 
 function myCheck(light) {
@@ -77,6 +96,27 @@ function myMove(a) {
     myFade("#" + aid + "." + d);
     myFade("#" + aid + "." + e);
 }
+
+$(document).ready(function() {
+    myStart();
+	$("div").click(function() {
+	    if (win == 0) {
+	        myMove(this);
+	    }
+    });
+    
+    $(".randomize").click(function() {
+        myRandomize();
+    });
+  
+    $(".win").click(function() {
+        myWin();
+    });
+    $(".change").click(function() {
+        myReset();
+    });
+});
+
 
 $(document).ready(function() {
     myStart();
