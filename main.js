@@ -1,13 +1,17 @@
 //$("body").append($().attr(""));
-var rows = 4;
 
-var columns = 5;
+var rows = 10;
+
+var columns = 10;
 
 var win = 0;
 
 function myStart() {
-    for (i = 1; i <= rows; i++) {
-        $("body").append($("#1.1").attr("kkk"))
+    for (j = 1; j <= rows; j++) {
+        $("table").append("<tr id='r" + j + "'></tr>");
+        for (i = 1; i <= columns; i++) {
+            $("#r" + j).append("<td><div id='" + j + "' class='"+ i +"' kkk='1'></div></td>");
+        }
     }
     //$("div").attr("kkk", rows.toString());
     //$("body").append($("#1.1").attr("kkk"));
@@ -20,7 +24,7 @@ function myCheck(light) {
 }
 
 function myRandomize(){
-    var a = Math.floor((Math.random() * 10) + rows * columns); 
+    var a = Math.floor((Math.random() * 10) + 2 * rows * columns); 
     for (i = 0; i < a; i++) {   
         r = Math.floor((Math.random() * rows) + 1);
         c = Math.floor((Math.random() * columns) + 1);
@@ -31,21 +35,15 @@ function myRandomize(){
 
 function myWin(a) {
         win = 1;
-        for (r = 0; r < rows; r++) {
-            for (c = 0; c < columns; c++) {
+        for (r = 1; r <= rows; r++) {
+            for (c = 1; c <= columns; c++) {
                 myCheck("#" + r + "." + c);
             }
         }
         if (win == 1) {
-            if (a==0) {
 	            alert("DAMN DANIEL!!! GG!!!");
-            }
-	        return 1;
         } else {
-            if (a==0) {
                 alert("NOT THERE YET!!!");
-            }
-            return 0;
         }
 }
 
@@ -87,8 +85,9 @@ $(document).ready(function() {
         } else {
             if (myWin(1) == 1){
                 myRandomize();
-            } else
-                alert("You must win first!")
+            } else {
+                alert("You must win first!");
+            }
         }
     });
   
