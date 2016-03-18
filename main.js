@@ -1,8 +1,8 @@
 //$("body").append($().attr(""));
 
-var rows = 5;
+var rows = 9;
 
-var columns = 5;
+var columns = 9;
 
 var win = 0;
 
@@ -95,3 +95,6 @@ $(document).ready(function() {
         myWin(0);
     });
 });
+
+
+
