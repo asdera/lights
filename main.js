@@ -1,8 +1,8 @@
 //$("body").append($().attr(""));
 
-var rows = 10;
+var rows = 9;
 
-var columns = 10;
+var columns = 9;
 
 var win = 0;
 
