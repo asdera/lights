@@ -1,10 +1,10 @@
 //$("body").append($().attr(""));
 
-var rows = 9;
+var rows = 4;
 
-var columns = 9;
+var columns = 5;
 
-var win = 0;
+var win = 1;
 
 function myStart() {
     for (j = 1; j <= rows; j++) {
@@ -15,6 +15,13 @@ function myStart() {
     }
     //$("div").attr("kkk", rows.toString());
     //$("body").append($("#1.1").attr("kkk"));
+}
+
+function myReset() {
+    /*var user_row = prompt;
+    var user_columns = 3;
+    $("table").empty();
+    myStart()*/
 }
 
 function myCheck(light) {
@@ -33,7 +40,7 @@ function myRandomize(){
     win = 0;
 }
 
-function myWin(a) {
+function myWin() {
         win = 1;
         for (r = 1; r <= rows; r++) {
             for (c = 1; c <= columns; c++) {
@@ -41,7 +48,7 @@ function myWin(a) {
             }
         }
         if (win == 1) {
-	            alert("DAMN DANIEL!!! GG!!!");
+	            alert("DAMN DANIEL!!! PLAY AGAIN?");
         } else {
                 alert("NOT THERE YET!!!");
         }
@@ -80,21 +87,15 @@ $(document).ready(function() {
     });
     
     $(".randomize").click(function() {
-        if (win == 1) {
-            myRandomize();
-        } else {
-            if (myWin(1) == 1){
-                myRandomize();
-            } else {
-                alert("You must win first!");
-            }
-        }
+        myRandomize();
     });
   
     $(".win").click(function() {
-        myWin(0);
+        myWin();
+    });
+    $(".change").click(function() {
+        myReset();
     });
 });
-
 
 
