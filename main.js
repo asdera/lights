@@ -8,7 +8,7 @@ var win = 1;
 
 function isGud(n, m) {
    if (n % 1 == 0 && m % 1 == 0) {
-        if (n > 1 && n < 51 && m > 1 && m < 51) {
+        if (n > 1 && n < 501 && m > 1 && m < 501) {
             return 1;
         } else {
             return 0;
